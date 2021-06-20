@@ -1,0 +1,15 @@
+version: '2.2'
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.pgadmin.rule=Host(`pgadmin.${DOMAIN_SECONDARY}`)
+      - traefik.http.services.pgadmin.loadbalancer.server.port=80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL:-admin}       # Cannot be changed after first launch
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD:-admin} # Cannot be changed after first launch
+    volumes:
+      - ${PATH_DATA:-./data}/pgadmin:/var/lib/pgadmin               # Delete data files to start again with new user

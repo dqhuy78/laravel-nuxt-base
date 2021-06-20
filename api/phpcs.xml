@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Base project" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <arg name="tab-width" value="4"/>
+    <arg name="parallel" value="75"/>
+    <arg name="colors"/>
+    <arg value="nps"/>
+
+    <file>app</file>
+    <file>config</file>
+    <file>database</file>
+    <file>resources</file>
+    <file>routes</file>
+    <file>tests</file>
+
+    <exclude-pattern>vendor/</exclude-pattern>
+
+    <rule ref="SunAsteriskLaravel"/>
+</ruleset>

@@ -1,0 +1,23 @@
+version: '2.2'
+
+services:
+  web:
+    image: node:12-alpine
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.web.rule=Host(`${DOMAIN}`)
+      - traefik.http.services.web.loadbalancer.server.port=3000
+    working_dir: /web
+    volumes:
+      - ${PATH_WEB}:/web
+      - ${HOSTS_FILE}:/etc/hosts
+    tty: true
+
+  nginx:
+    labels:
+      - traefik.http.routers.nginx.rule=Host(`${DOMAIN}`) && PathPrefix(`${API_PATH_PREFIX:-/api}`)
+    networks:
+      default:
+        aliases:
+          - api

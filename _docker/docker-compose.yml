@@ -1,0 +1,22 @@
+version: '2.2'
+
+services:
+  traefik:
+    image: traefik:2.2
+    restart: always
+    command:
+      - --api.dashboard=true
+      - --entrypoints.http.address=:80
+      - --providers.docker
+      - --providers.docker.watch=true
+      - --providers.docker.exposedbydefault=false
+    ports:
+      - ${PORT:-80}:80
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN_SECONDARY}`)
+      - traefik.http.routers.traefik.service=api@internal
+      - traefik.http.middlewares.traefik-dashboard.redirectRegex.regex=/
+      - traefik.http.middlewares.traefik-dashboard.redirectRegex.replacement=/dashboard/
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

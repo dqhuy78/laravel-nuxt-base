@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended",
+    "plugin:nuxt/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["~", "./src"],
+        ["assets", "./src/assets"],
+        ["@", "./src"]
+      ],
+      "webpack": {}
+    }
+  },
+  "ignorePatterns": [
+    "src/components/_Svg/*"
+  ],
+  "rules": {
+    "indent": ["off"],
+    "semi": ["error", "always"],
+    "max-len": ["error", 120, {
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "max-lines": ["error", 200],
+    "no-shadow": ["error", {
+      "allow": ["state"]
+    }],
+    "no-param-reassign": ["error", {
+      "props": false
+    }],
+    "prefer-destructuring": "off",
+    "no-use-before-define": ["error", {
+      "functions": false
+    }],
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "indent": "off",
+        "vue/html-indent": ["error", 4],
+        "vue/script-indent": ["error", 4, {
+          "baseIndent": 1,
+          "switchCase": 1
+        }],
+        "vue/max-attributes-per-line": ["warn", {
+          "singleline": 3
+        }],
+        "vue/require-default-prop": "off",
+        "vue/singleline-html-element-content-newline": "off",
+        "vue/multiline-html-element-content-newline": "off"
+      }
+    }
+  ]
+}
