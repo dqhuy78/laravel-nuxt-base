@@ -1,4 +1,3 @@
-<?php // gkc_hash_code : 01F20DDQ6AC44VR9TJE1SN7CJ5 ?>
 <?php
 // phpcs:ignoreFile
 // @codeCoverageIgnoreStart

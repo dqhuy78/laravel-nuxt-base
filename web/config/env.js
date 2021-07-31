@@ -16,7 +16,7 @@ const validEnv = cleanEnv(process.env, {
         desc: 'Default application url',
     }),
     APP_NAME: str({
-        default: 'S*Review',
+        default: 'Base project',
         desc: 'Application name',
     }),
     HOST: host({

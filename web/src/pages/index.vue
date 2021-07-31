@@ -6,7 +6,7 @@
                 <p class="font-bold">Store test:</p>
                 <pre class="bg-gray-200 p-2">{{ auth }}</pre>
             </div>
-            <div>
+            <div class="mb-3">
                 <p class="font-bold">i18n test:</p>
                 <p class="capitalize bg-gray-200 p-2">
                     {{ $t('hello-world') }}
@@ -15,6 +15,14 @@
                     <img src="~/assets/images/vi.svg" class="w-10 cursor-pointer" @click="changeLanguage('vi')">
                     <img src="~/assets/images/en.svg" class="w-10 mx-5 cursor-pointer" @click="changeLanguage('en')">
                     <img src="~/assets/images/jp.svg" class="w-10 cursor-pointer" @click="changeLanguage('jp')">
+                </div>
+            </div>
+            <div>
+                <p class="font-bold">Google Material Icon test:</p>
+                <div class="bg-gray-200 p-2">
+                    <span class="material-icons">home</span>
+                    <span class="material-icons">settings</span>
+                    <span class="material-icons">account_circle</span>
                 </div>
             </div>
         </div>

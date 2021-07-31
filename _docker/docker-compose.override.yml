@@ -1,0 +1,14 @@
+version: '2.2'
+
+services:
+  nginx:
+    labels:
+    - traefik.http.middlewares.strip-api.stripPrefix.prefixes=/api
+    - traefik.http.routers.nginx.middlewares=strip-api
+    - traefik.http.routers.nginx-redirect.rule=Host(`hieubt.com`)
+    - traefik.http.routers.telescope.rule=Host(`${DOMAIN}`) && (PathPrefix(`/telescope`) || PathPrefix(`/vendor`))
+    - traefik.http.routers.telescope.service=nginx
+
+  php:
+    environment:
+    - TELESCOPE_ENABLED=true

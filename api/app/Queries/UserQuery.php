@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Queries;
 
-use App\Models\DummyModel;
+use App\Models\User;
 
-class DummyClass extends BaseRepository
+class UserQuery extends BaseQuery
 {
     /**
      * The entity associated with this repository.
@@ -13,6 +13,6 @@ class DummyClass extends BaseRepository
      */
     public function model()
     {
-        return new DummyModel();
+        return new User();
     }
 }

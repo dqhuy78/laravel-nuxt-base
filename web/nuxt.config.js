@@ -9,8 +9,8 @@ import {
     HOST,
     PORT,
     BROWSER_API_URL,
+    GA_ID,
     // SENTRY_DSN,
-    // GA_ID,
 } from './config/env';
 
 export default {
@@ -57,16 +57,24 @@ export default {
 
     head,
 
+    axios: {
+        browserBaseURL: BROWSER_API_URL,
+    },
+
+    loading: {
+        color: '#409EFF',
+        height: '3px',
+    },
+
     plugins: [
         '@/plugins/nuxt-client-init', // Enable if use client side render
         '@/plugins/element-ui',
-        // '@/plugins/i18n',
         // { src: '@/plugins/echo', ssr: false }, // Enable if use laravel echo
     ],
 
     buildModules: [
         '@nuxtjs/tailwindcss',
-        // '@nuxtjs/google-analytics', // Enable if use Google Analytics
+        '@nuxtjs/google-analytics',
     ],
 
     modules: [
@@ -87,22 +95,12 @@ export default {
         },
     },
 
-    axios: {
-        browserBaseURL: BROWSER_API_URL,
+    googleAnalytics: {
+        id: GA_ID,
+        debug: {
+            sendHitTask: true,
+        },
     },
-
-    loading: {
-        color: '#409EFF',
-        height: '3px',
-    },
-
-    // Enable if use Google Analytics
-    // googleAnalytics: {
-    //   id: GA_ID,
-    //   debug: {
-    //       sendHitTask: true,
-    //   },
-    // },
 
     // Enable if use Sentry
     // sentry: {

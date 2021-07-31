@@ -8,6 +8,4 @@ services.*
 
 hosts
 
-docker-compose.override.yml
-
 /data/*

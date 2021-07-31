@@ -1,4 +1,3 @@
-<?php // gkc_hash_code : 01F20DDQ6AC44VR9TJE1SN7CJ5 ?>
 <?php
 // phpcs:ignoreFile
 // @codeCoverageIgnoreStart
@@ -6,28 +5,28 @@ namespace App\Console\Commands\Init;
 
 use Illuminate\Console\GeneratorCommand;
 
-class CreateRepositoryCommand extends GeneratorCommand
+class CreateQueryCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:repository {name}';
+    protected $signature = 'create:query {name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create new repository';
+    protected $description = 'Create new query';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Repository';
+    protected $type = 'Query';
 
     /**
      * Get the stub file for the generator.
@@ -36,7 +35,7 @@ class CreateRepositoryCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/repository.stub';
+        return __DIR__.'/stubs/query.stub';
     }
 
     /**
@@ -47,7 +46,7 @@ class CreateRepositoryCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories';
+        return $rootNamespace.'\Queries';
     }
 
     /**
@@ -57,7 +56,7 @@ class CreateRepositoryCommand extends GeneratorCommand
      */
     protected function getNameInput()
     {
-        return trim($this->argument('name')) . 'Repository';
+        return trim($this->argument('name')) . 'Query';
     }
 
     /**
@@ -74,7 +73,7 @@ class CreateRepositoryCommand extends GeneratorCommand
                 'DummyModel',
             ],
             [
-                str_replace('Repository', '', $this->getNameInput()),
+                str_replace('Query', '', $this->getNameInput()),
             ],
             $stub
         );
